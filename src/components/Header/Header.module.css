@@ -8,16 +8,31 @@
 .navList {
     display: flex;
     gap: 40px;
+    justify-content: center;
+
+    @media screen and (min-width: 744px) {
+        justify-content: start;
+    }
 }
 
 .navLink {
     color: white;
-    font-size: 16px;
+    font-size: 22px;
     padding: 10px 20px;
+    font-weight: 600;
 
     &:hover,
-    &:focus {
-        color: black;
+    &:focus,
+    &:active {
+        color: #000000;
         transition: 1.5ms ease-in-out;
+    }
+
+    @media screen and (min-width: 744px) {
+        font-size: 34px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 40px;
     }
 }
