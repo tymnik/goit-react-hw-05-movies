@@ -18,7 +18,7 @@ const SearchMovieList = ({ searchResults }) => {
           ))}
         </ul>
       ) : (
-        <p className={styles.noMoviesText}>No matching movies found.</p>
+        <p className={styles.noMoviesText}>Let's try to find some movies.</p>
       )}
     </section>
   );

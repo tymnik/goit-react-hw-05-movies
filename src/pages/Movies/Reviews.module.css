@@ -1,0 +1,17 @@
+.reviews {
+    padding: 16px;
+
+    @media screen and (min-width: 744px) {
+        padding: 20px;
+    }
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media screen and (min-width: 744px) {
+        gap: 25px;
+    }
+}

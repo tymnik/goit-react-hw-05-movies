@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './CastItem.module.css'
 
+const defaultActorImg =
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+
 const CastItem = ({ actor }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/w200${actor.profile_path}`;
+  const imageUrl = actor.profile_path
+    ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+    : defaultActorImg;
 
   return (
     <li className={styles.castCard}>

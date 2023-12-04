@@ -34,6 +34,8 @@ const Cast = () => {
       }
     };
 
+if (!movieId) return;
+
     fetchCredits();
   }, [movieId]);
 

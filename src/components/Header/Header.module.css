@@ -22,8 +22,7 @@
     font-weight: 600;
 
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
         color: #000000;
         transition: 1.5ms ease-in-out;
     }
@@ -35,4 +34,8 @@
     @media screen and (min-width: 1280px) {
         font-size: 40px;
     }
+}
+
+.activeNavLink {
+    color: #000000;
 }

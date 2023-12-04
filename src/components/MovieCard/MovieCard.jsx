@@ -3,6 +3,9 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './MovieCard.module.css';
 
+const defaultPosterImg =
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+
 const MovieCard = ({ movieDetails, isDetails }) => {
   const location = useLocation();
   const releaseYear = movieDetails.release_date.split('-')[0];
@@ -15,7 +18,11 @@ const MovieCard = ({ movieDetails, isDetails }) => {
     <section className={styles.movieCard}>
       <div>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
+          src={
+            movieDetails.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
+              : defaultPosterImg
+          }
           alt={movieDetails.title}
           className={styles.movieCardPoster}
         />

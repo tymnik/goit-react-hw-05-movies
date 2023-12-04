@@ -22,6 +22,8 @@ const MovieDetails = () => {
       }
     };
 
+    if (!movieId) return;
+
     fetchMovieDetails();
   }, [movieId]);
 
