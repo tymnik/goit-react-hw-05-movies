@@ -9,8 +9,7 @@ function Header() {
         <li>
           <NavLink
             className={styles.navLink}
-            activeClassName={styles.activeNavLink}
-            to="/"
+                        to="/"
           >
             Home
           </NavLink>
@@ -18,8 +17,7 @@ function Header() {
         <li>
           <NavLink
             className={styles.navLink}
-            activeClassName={styles.activeNavLink}
-            to="/movies"
+             to="/movies"
           >
             Movies
           </NavLink>

@@ -1,13 +1,11 @@
 import Loader from 'components/Loader/Loader';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import styles from './MovieCard.module.css';
 
 const defaultPosterImg =
   'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
 const MovieCard = ({ movieDetails, isDetails }) => {
-  const location = useLocation();
   const releaseYear = movieDetails.release_date.split('-')[0];
 
   if (!movieDetails) {
