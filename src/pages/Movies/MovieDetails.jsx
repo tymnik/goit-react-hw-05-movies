@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Loader from 'components/Loader/Loader';
@@ -58,6 +58,7 @@ const MovieDetails = () => {
           </ul>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };

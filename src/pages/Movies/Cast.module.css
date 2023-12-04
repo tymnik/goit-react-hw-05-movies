@@ -1,0 +1,20 @@
+.cast {
+    padding: 16px;
+
+    @media screen and (min-width: 744px) {
+            padding: 20px;            
+        }                 
+}
+
+.castList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media screen and (min-width: 1280px) {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 150px;
+
+        }
+}

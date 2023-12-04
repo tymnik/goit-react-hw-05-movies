@@ -9,7 +9,7 @@ const BackButton = ({ onClick }) => {
     if (onClick) {
       onClick();
     } else {
-      navigate('/');
+      navigate(-1);
     }
   };
 

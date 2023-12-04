@@ -20,4 +20,21 @@ const getTrendingMovies = async () => {
   }
 };
 
-export default getTrendingMovies;
+const searchMovies = async keyword => {
+  try {
+    const response = await axios.get('/search/movie', {
+      params: {
+        api_key: KEY_API,
+        language: 'en-US',
+        query: keyword,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Error searching movies:', error);
+    throw error;
+  }
+};
+
+export { getTrendingMovies, searchMovies };
