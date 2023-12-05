@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchMovieList from 'components/SearchMovieList/SearchMovieList';
 import { searchMovies } from '../../components/api/api';
+import { Outlet } from 'react-router-dom';
 
 const MoviePage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -15,11 +16,14 @@ const MoviePage = () => {
     }
   };
 
+
+
   return (
     <div>
       <SearchBar onSubmit={handleSearch} />
       <SearchMovieList searchResults={searchResults} />
-         </div>
+      <Outlet/>
+    </div>
   );
 };
 

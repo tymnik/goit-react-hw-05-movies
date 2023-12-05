@@ -3,6 +3,7 @@ import CastItem from 'components/CastItem/CastItem';
 import Loader from 'components/Loader/Loader';
 import { useParams } from 'react-router-dom';
 import styles from './Cast.module.css';
+import { fetchCredits } from '../../components/api/api';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -11,22 +12,12 @@ const Cast = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchCredits = async () => {
+    const fetchData = async () => {
+      if (!movieId) return;
+
       try {
-        const KEY_API = '034807affda3ec91f179dd3de3e4274d';
-        const url = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${KEY_API}&language=en-US`;
-
-        const options = {
-          method: 'GET',
-          headers: {
-            accept: 'application/json',
-          },
-        };
-
-        const response = await fetch(url, options);
-        const data = await response.json();
-
-        setCredits(data.cast);
+        const castData = await fetchCredits(movieId);
+        setCredits(castData);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -34,13 +25,11 @@ const Cast = () => {
       }
     };
 
-if (!movieId) return;
-
-    fetchCredits();
+    fetchData();
   }, [movieId]);
 
   if (loading) {
-    return <Loader/>;
+    return <Loader />;
   }
 
   if (error) {

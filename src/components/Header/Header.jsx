@@ -7,18 +7,12 @@ function Header() {
     <div className={styles.navBar}>
       <ul className={styles.navList}>
         <li>
-          <NavLink
-            className={styles.navLink}
-                        to="/"
-          >
+          <NavLink className={styles.navLink} to="/">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink
-            className={styles.navLink}
-             to="/movies"
-          >
+          <NavLink className={styles.navLink} to="/movies">
             Movies
           </NavLink>
         </li>

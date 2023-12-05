@@ -4,10 +4,10 @@ import Header from 'components/Header/Header';
 const Layout = () => {
   return (
     <>
-          <Header />
-          <Outlet/>
+      <Header />
+      <Outlet />
     </>
   );
-}
+};
 
 export default Layout;

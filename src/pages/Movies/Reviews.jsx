@@ -3,6 +3,7 @@ import ReviewItem from 'components/ReviewItem/ReviewItem';
 import Loader from 'components/Loader/Loader';
 import { useParams } from 'react-router-dom';
 import styles from './Reviews.module.css';
+import { fetchReviews } from '../../components/api/api';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -11,22 +12,12 @@ const Reviews = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchReviews = async () => {
+    const fetchData = async () => {
+      if (!movieId) return;
+
       try {
-        const KEY_API = '034807affda3ec91f179dd3de3e4274d';
-        const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${KEY_API}&language=en-US`;
-
-        const options = {
-          method: 'GET',
-          headers: {
-            accept: 'application/json',
-          },
-        };
-
-        const response = await fetch(url, options);
-        const data = await response.json();
-
-        setReviews(data.results || []);
+        const reviewsData = await fetchReviews(movieId);
+        setReviews(reviewsData);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -34,9 +25,7 @@ const Reviews = () => {
       }
     };
 
-    if (!movieId) return;
-
-    fetchReviews();
+    fetchData();
   }, [movieId]);
 
   if (loading) {
