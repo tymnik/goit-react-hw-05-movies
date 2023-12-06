@@ -3,14 +3,14 @@ import { getTrendingMovies } from '../../components/api/api';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 
-const Home = ({ apiKey }) => {
+const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       try {
-        const movies = await getTrendingMovies(apiKey);
+        const movies = await getTrendingMovies();
         setTrendingMovies(movies);
         setLoading(false);
       } catch (error) {
@@ -20,7 +20,7 @@ const Home = ({ apiKey }) => {
     };
 
     fetchTrendingMovies();
-  }, [apiKey]);
+  }, []);
 
   return (
     <div>{loading ? <Loader /> : <MovieList movies={trendingMovies} />}</div>
