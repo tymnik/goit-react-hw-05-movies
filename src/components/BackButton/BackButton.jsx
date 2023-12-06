@@ -6,13 +6,16 @@ const BackButton = ({ onClick }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const backLink = location.state?.from ?? '/';
+  const fromLink = {
+    pathname: location.pathname,
+    search: location.search,
+  };
 
   const handleClick = () => {
     if (onClick) {
       onClick();
     } else {
-      navigate(backLink);
+      navigate(-1, { state: { from: fromLink } });
     }
   };
 
