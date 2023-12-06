@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './MovieList.module.css'
+import styles from './MovieList.module.css';
 import { Link } from 'react-router-dom';
+import MovieListItem from 'components/MovieListItem/MovieListItem';
 
 const MovieList = ({ movies }) => {
   if (
@@ -18,7 +19,7 @@ const MovieList = ({ movies }) => {
         {movies.results.map(movie => (
           <li key={movie.id}>
             <Link to={`/movies/${movie.id}`} className={styles.movieLink}>
-              {movie.title}
+              <MovieListItem movieDetails={movie} />
             </Link>
           </li>
         ))}

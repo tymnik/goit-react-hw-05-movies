@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SearchMovieList.module.css';
 import { Link } from 'react-router-dom';
+import MovieListItem from 'components/MovieListItem/MovieListItem';
 
 const SearchMovieList = ({ searchResults }) => {
   return (
@@ -12,7 +13,7 @@ const SearchMovieList = ({ searchResults }) => {
           {searchResults.map(movie => (
             <li key={movie.id}>
               <Link to={`/movies/${movie.id}`} className={styles.movieLink}>
-                {movie.title}
+                <MovieListItem movieDetails={movie} />
               </Link>
             </li>
           ))}

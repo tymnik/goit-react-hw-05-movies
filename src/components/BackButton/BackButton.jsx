@@ -8,12 +8,14 @@ const BackButton = ({ onClick }) => {
 
   const backLink = location.state?.from ?? '/';
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     if (onClick) {
       onClick();
     } else {
-      navigate(backLink);
+      navigate(-1 ?? backLink);
     }
+
+    event.preventDefault();
   };
 
   return (

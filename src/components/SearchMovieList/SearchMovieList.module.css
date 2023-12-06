@@ -11,17 +11,11 @@
 }
 
 .moviesList {
-    font-size: 14px;
-    line-height: 2;
-    color: rgb(100, 61, 136);
-
-    @media screen and (min-width: 744px) {
-        font-size: 16px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        font-size: 22px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 25px;
+    column-gap: 20px;
 }
 
 .movieLink:hover,
