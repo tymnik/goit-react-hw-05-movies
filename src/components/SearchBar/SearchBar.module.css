@@ -23,12 +23,6 @@
     background-color: #fff;
     border-radius: 30px;
     overflow: hidden;
-
-    &:hover,
-    &:focus,
-    &:active {
-        border: 2px solid rgba(0, 0, 0, 0.2);
-    }
 }
 
 .button {

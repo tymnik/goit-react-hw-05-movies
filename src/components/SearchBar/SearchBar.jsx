@@ -14,7 +14,7 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <header className={styles.searchbar}>
+    <div className={styles.searchbar}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <button type="submit" className={styles.button}>
           <span className={styles.buttonLabel}>Search</span>
@@ -30,7 +30,7 @@ const SearchBar = ({ onSubmit }) => {
           onChange={handleInputChange}
         />
       </form>
-    </header>
+    </div>
   );
 };
 
