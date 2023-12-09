@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './SearchMovieList.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MovieListItem from 'components/MovieListItem/MovieListItem';
 
 const SearchMovieList = ({ searchResults }) => {
+  const location = useLocation();
+  
   return (
     <section className={styles.searchedMovies}>
       {searchResults &&
@@ -12,7 +14,11 @@ const SearchMovieList = ({ searchResults }) => {
         <ul className={styles.moviesList}>
           {searchResults.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`} className={styles.movieLink}>
+              <Link
+                to={`/movies/${movie.id}`}
+                state={{ from: location }}
+                className={styles.movieLink}
+              >
                 <MovieListItem movieDetails={movie} />
               </Link>
             </li>

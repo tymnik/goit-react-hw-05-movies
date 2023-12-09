@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Loader from 'components/Loader/Loader';
 import BackButton from 'components/BackButton/BackButton';
@@ -9,6 +9,8 @@ import { fetchMovieDetails } from '../../components/api/api';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
+  const location = useLocation();
+   const backLink = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +34,7 @@ const MovieDetails = () => {
 
     return (
       <div>
-        <BackButton />
+        <Link to={backLink.current}><BackButton /></Link>
         <div>
           <MovieCard movieDetails={movieDetails} />
           <div className={styles.additionalBlock}>

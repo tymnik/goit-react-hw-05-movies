@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './MovieList.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MovieListItem from 'components/MovieListItem/MovieListItem';
 
 const MovieList = ({ movies }) => {
+  const location = useLocation();
+
   if (
     !movies ||
     !Array.isArray(movies.results) ||
@@ -18,7 +20,11 @@ const MovieList = ({ movies }) => {
       <ul className={styles.moviesList}>
         {movies.results.map(movie => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`} className={styles.movieLink}>
+            <Link
+              to={`/movies/${movie.id}`}
+              state={{ from: location }}
+              className={styles.movieLink}
+            >
               <MovieListItem movieDetails={movie} />
             </Link>
           </li>
