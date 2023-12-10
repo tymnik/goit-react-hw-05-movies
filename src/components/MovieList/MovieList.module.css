@@ -25,15 +25,24 @@
 }
 
 .moviesList {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-row-gap: 25px;
-column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 25px;
+    column-gap: 20px;
 }
 
 .movieLink:hover,
 .movieLink:focus,
 .movieLink:active {
     color: rgb(161, 74, 243);
+}
+
+.noMoviesText {
+    font-size: 16px;
+    font-weight: 400;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+    }
 }

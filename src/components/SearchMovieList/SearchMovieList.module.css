@@ -23,3 +23,12 @@
 .movieLink:active {
     color: rgb(161, 74, 243);
 }
+
+.noMoviesText {
+    font-size: 16px;
+    font-weight: 400;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+    }
+}

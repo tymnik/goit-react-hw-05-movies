@@ -8,13 +8,8 @@
 
 .castList {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    @media screen and (min-width: 1280px) {
-          flex-direction: row;
-          flex-wrap: wrap;
-          gap: 150px;
-
-        }
+    flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 25px;
+        column-gap: 20px;
 }

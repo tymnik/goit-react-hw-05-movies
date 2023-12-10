@@ -10,7 +10,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const location = useLocation();
-   const backLink = useRef(location.state?.from ?? '/');
+  const backLink = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,14 +27,16 @@ const MovieDetails = () => {
     fetchData();
   }, [movieId]);
 
-    const renderLoaderOrContent = () => {
+  const renderLoaderOrContent = () => {
     if (!movieDetails) {
       return <Loader />;
     }
 
     return (
       <div>
-        <Link to={backLink.current}><BackButton /></Link>
+        <Link to={backLink.current}>
+          <BackButton />
+        </Link>
         <div>
           <MovieCard movieDetails={movieDetails} />
           <div className={styles.additionalBlock}>
@@ -56,6 +58,14 @@ const MovieDetails = () => {
                   className={styles.movieNavLink}
                 >
                   Reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={`/movies/${movieDetails.id}/trailer`}
+                  className={styles.movieNavLink}
+                >
+                  Trailer
                 </Link>
               </li>
             </ul>

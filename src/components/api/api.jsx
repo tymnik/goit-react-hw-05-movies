@@ -94,10 +94,27 @@ const fetchReviews = async movieId => {
   }
 };
 
+const fetchMovieVideos = async movieId => {
+  try {
+    const response = await axios.get(`/movie/${movieId}/videos`, {
+      params: {
+        api_key: KEY_API,
+        language: 'en-US',
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching movie videos:', error);
+    throw error;
+  }
+};
+
 export {
   getTrendingMovies,
   searchMovies,
   fetchMovieDetails,
   fetchCredits,
   fetchReviews,
+  fetchMovieVideos,
 };
